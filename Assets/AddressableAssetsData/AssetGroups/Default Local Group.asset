@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 8f1a550e4643fa341876372dcf4b160f
+  m_SerializeEntries:
+  - m_GUID: 4582527982a3201448a0e407e5c84060
+    m_Address: Assets/Scripts/MenuSystem/UI/Prifabs/ModalAlertWindow.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a1a46fbb73becb049a21a367b55382bc
+    m_Address: Assets/Scripts/MenuSystem/UI/Prifabs/LoadingMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: f41d7a00da8265442b067ba7cbe823ba
+    m_Address: Assets/Scripts/MenuSystem/UI/Prifabs/MainMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4894608fb3407a845bf4e06db16f2b26
+    m_Address: Assets/Scripts/MenuSystem/UI/Prifabs/GamePlayMenu.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: a57460b976fd72e4995f540c35baff10
+    m_Address: Assets/Scripts/MenuSystem/UI/Prifabs/UIMANAGER.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b347949cae023da4b96d41d176bdd8c1, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 8b133dfcd866553429c1865fbf6ff6a9, type: 2}
+    - {fileID: 11400000, guid: 095103f440b8af04280163c59b7a3492, type: 2}
