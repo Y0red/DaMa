@@ -35,7 +35,6 @@ public class BoardManager : Manager<BoardManager>
     public string winner = string.Empty;
 
     public bool isAiPlayer = false;
-
     void Start()
     {
         //SpawnMyPices();
