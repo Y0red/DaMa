@@ -71,7 +71,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.0014725, y: -24}
+  m_AnchoredPosition: {x: -0.0014725, y: -312}
   m_SizeDelta: {x: 800, y: 187.0017}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &8686606511176192538
@@ -376,7 +376,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.7525}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -315}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8686606511726953576
@@ -582,7 +582,7 @@ PrefabInstance:
     - target: {fileID: 5043135744993724697, guid: 4682b62131d19c5448fef39cf2c67483,
         type: 3}
       propertyPath: m_text
-      value: Buy
+      value: Play AI
       objectReference: {fileID: 0}
     - target: {fileID: 5043135744993724697, guid: 4682b62131d19c5448fef39cf2c67483,
         type: 3}
@@ -764,7 +764,7 @@ PrefabInstance:
     - target: {fileID: 5043135744993724697, guid: 4682b62131d19c5448fef39cf2c67483,
         type: 3}
       propertyPath: m_text
-      value: PLAY
+      value: PLAY 2V
       objectReference: {fileID: 0}
     - target: {fileID: 5043135744993724697, guid: 4682b62131d19c5448fef39cf2c67483,
         type: 3}

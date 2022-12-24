@@ -129,8 +129,6 @@ Library: lib_burst_generated
 --compilation-defines=ENABLE_BURST_1_0_0_OR_NEWER
 --compilation-defines=USING_ANIMATION_MODULE
 --compilation-defines=USING_PHYSICS2D_MODULE
---compilation-defines=TIMELINE_FRAMEACCURATE
---compilation-defines=ENABLE_ASYNC_ASSETBUNDLE_UWR
 --compilation-defines=CINEMACHINE_TIMELINE
 --compilation-defines=CINEMACHINE_PHYSICS_2D
 --compilation-defines=CINEMACHINE_PHYSICS
@@ -138,6 +136,8 @@ Library: lib_burst_generated
 --compilation-defines=CINEMACHINE_LWRP_7_3_1
 --compilation-defines=CINEMACHINE_UNITY_ANIMATION
 --compilation-defines=CINEMACHINE_UNITY_IMGUI
+--compilation-defines=TIMELINE_FRAMEACCURATE
+--compilation-defines=ENABLE_ASYNC_ASSETBUNDLE_UWR
 --generate-link-xml=Temp\burst.link.xml
 --output=D:\Projects\DaMa\Temp\StagingArea\tempburstlibs\armeabi-v7a\lib_burst_generated
 --root-assembly=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
@@ -149,17 +149,17 @@ Library: lib_burst_generated
 --root-assembly=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Universal.Runtime.dll
 --root-assembly=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\Unity.Burst.dll
 --root-assembly=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\Unity.TextMeshPro.dll
+--root-assembly=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\Unity.Addressables.dll
+--root-assembly=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\Cinemachine.dll
 --root-assembly=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
+--root-assembly=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\Unity.ResourceManager.dll
 --root-assembly=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\Unity.RenderPipeline.Universal.ShaderLibrary.dll
 --root-assembly=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
+--root-assembly=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\Unity.ScriptableBuildPipeline.dll
+--root-assembly=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\Assembly-CSharp-firstpass.dll
 --root-assembly=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Core.ShaderLibrary.dll
 --root-assembly=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Universal.Shaders.dll
 --root-assembly=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
---root-assembly=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\Unity.Addressables.dll
---root-assembly=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\Unity.ResourceManager.dll
---root-assembly=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\Unity.ScriptableBuildPipeline.dll
---root-assembly=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\Cinemachine.dll
---root-assembly=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\Assembly-CSharp-firstpass.dll
 --assembly-folder=D:\Projects\DaMa\Temp\StagingArea\Data\Managed\
 --pdb-search-paths=Temp/ManagedSymbols/
 --method=Unity.Jobs.IJobForExtensions+ForJobStruct`1[[UnityEngine.Rendering.Universal.ReorderJob`1[[UnityEngine.Rendering.Universal.LightMinMaxZ, Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]], UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null::Execute(UnityEngine.Rendering.Universal.ReorderJob`1[[UnityEngine.Rendering.Universal.LightMinMaxZ, Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]&, Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|System.IntPtr, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089|Unity.Jobs.LowLevel.Unsafe.JobRanges&, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null|System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089)--e943843acfb78f5f2f3716a6553740d9

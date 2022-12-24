@@ -42,7 +42,7 @@ namespace MenuSystem
 
         private void OnPause()
         {
-            throw new NotImplementedException();
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
         }
     }
 }

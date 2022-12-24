@@ -44,6 +44,7 @@ public class BoardHighlight : MonoBehaviour
             }
         }
     }
+    
 
     public void HideHilights()
     {

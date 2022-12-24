@@ -20,6 +20,13 @@ public class BoardManager : Manager<BoardManager>
     public int selectionX = -1;
     public int selectionY = -1;
 
+    public GameObject Npc, plain;
+
+    internal void EnableAI()
+    {
+        Npc.SetActive(true);
+    }
+
     [SerializeField] GameObject whitePrifabs, blackPrifabs;
     [SerializeField] Transform whitePicesTransform, blackPicesTransform;
     [SerializeField]private List<GameObject> whitePices, blackPices;
@@ -38,13 +45,14 @@ public class BoardManager : Manager<BoardManager>
     void Start()
     {
         //SpawnMyPices();
-        // GameEvents.Instance.OnStartGame += StartGame;
-        StartGame();
+         GameEvents.Instance.OnStartGame += StartGame;
+        //StartGame();
     }
     void StartGame()
     {
-        //UiManager.Instance.LoadMenu("Game_Play_Menu");
-        if (isAiPlayer) GetComponent<NPC>().enabled = true;
+        plain.SetActive(true);
+        UiManager.Instance.LoadMenu("Game_Play_Menu");
+       // if (isAiPlayer) GetComponent<NPC>().enabled = true;
         SpawnMyPices();
         OncurrentEvent.Invoke(currentPice);
     }
@@ -52,12 +60,12 @@ public class BoardManager : Manager<BoardManager>
     {
         if (isWhiteturn)
         {
-            turn = "White";
+            turn = "Red";
             currentPice = PiceType.White;
         }
         else if (!isWhiteturn)
         {
-            turn = "Black";
+            turn = "White";
             currentPice = PiceType.Black;
         }
     }
@@ -84,12 +92,12 @@ public class BoardManager : Manager<BoardManager>
             //   // selected = false;
             //   // BoardHighlight.Instance.HideHilights();
             //}
-            //else
-            //{
+         //   else
+        //    {
             //    //Debug.Log("bounds");
             //  //  selected = false;
-            //  //  BoardHighlight.Instance.HideHilights();
-            //}
+          //      BoardHighlight.Instance.HideHilights();
+         //   }
         }   
     }
     public void TryMove(int x1, int y1, int x2, int y2)
@@ -167,6 +175,7 @@ public class BoardManager : Manager<BoardManager>
     {
         p.DoScale(false);
         p.transform.position = ChessCenter(x, y);
+        p.SetPosition(x,y);
     }
     List<Pawn> ScanForPossibleMove(Pawn p, int x, int y)
     {
@@ -219,6 +228,11 @@ public class BoardManager : Manager<BoardManager>
         
         if (Pices [x,y].IsWhite != isWhiteturn)
            return;
+        if (isAiPlayer)
+        {
+            if (Pices[x, y].IsWhite == false)
+                return;
+        }
 
 
         // allowedMoves = PicesManagers[x, y].PossibleMoves();
@@ -231,13 +245,18 @@ public class BoardManager : Manager<BoardManager>
             startDrag = new Vector2(x, y);
             selected = true;
 
-            bool[,] allowedMoves = Pices[x, y].PossibleMoves();
-
+            // bool[,] allowedMoves = Pices[x, y].PossibleMoves();
+            // List<Moves> m = p.GetAllMoves();
+            // foreach(Moves mm in m)
+            //{
+            //    Debug.Log(mm.X + "-" + mm.Y);
+            // }
+            //var moves = p.GetAllMoves();
+            //foreach(Moves m in moves)
+            {
+           //     Debug.Log(m.X+":"+m.Y);
+            }
             //BoardHighlight.Instance.HilightAllowedMoves(allowedMoves);
-        }
-        else
-        {
-           // BoardHighlight.Instance.HideHilights();
         }
     }
     private void DrawBoard()
@@ -373,11 +392,10 @@ public class BoardManager : Manager<BoardManager>
         isWhiteturn = !isWhiteturn;
         OncurrentEvent.Invoke(isWhiteturn ? PiceType.White : PiceType.Black);
         hasKilled = false;
-        //GameEvents.Instance.UpdateGameText(turn);
+        GameEvents.Instance.UpdateGameText(turn);
     }
     private void CheckVictory()
     {
-        //throw new NotImplementedException();
         if (blackPices.Count <= 0)
         {
             //white wins
@@ -415,6 +433,18 @@ public class BoardManager : Manager<BoardManager>
         OncurrentEvent.Invoke(PiceType.End);
         GameEvents.Instance.GameOver(winner);
     }
+    #region AI HELPER
+    public List<Pawn> GetAIPlayers()
+    {
+        List<Pawn> pawns = new List<Pawn>();
+        foreach(GameObject p in blackPices)
+        {
+            pawns.Add(p.GetComponent<Pawn>());
+        }
+
+        return pawns;
+    }
+    #endregion
 }
 [Serializable]
 public enum PiceType { Black, White, End }

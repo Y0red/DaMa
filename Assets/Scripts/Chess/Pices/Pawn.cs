@@ -8,7 +8,7 @@ public  class Pawn : MonoBehaviour
 {
     public bool isKIng, IsWhite;
     [SerializeField] GameObject crown;
-    [SerializeField] int CurrentX, CurrentY;
+    [SerializeField]int CurrentX, CurrentY;
     public bool ValidMove(Pawn[,] board, int x1, int y1, int x2, int y2)
     {
         if (board[x2, y2] != null) return false;
@@ -147,9 +147,10 @@ public  class Pawn : MonoBehaviour
             {
                 i--;
                 j++;
-                if (i > 0 && j <= 8)
+                if (i < 0 || j > 7)
                     break;
 
+                ///Debug.Log("Top Left-" + i +""+ j);
                 c = BoardManager.Instance.Pices[i, j];
                 if (c == null)
                     r[i, j] = true;
@@ -170,9 +171,10 @@ public  class Pawn : MonoBehaviour
             {
                 i++;
                 j++;
-                if (i <= 8 && j <= 8)
+                if (i > 7  || j > 7)
                     break;
 
+               // Debug.Log("Top Right-" + i + "" + j);
                 c = BoardManager.Instance.Pices[i, j];
                 if (c == null)
                     r[i, j] = true;
@@ -194,9 +196,10 @@ public  class Pawn : MonoBehaviour
             {
                 i--;
                 j--;
-                if (i >= 8 && j > 0)
+                if (i < 0 || j < 0)
                     break;
 
+                //Debug.Log("Down Left-" + i + "" + j);
                 c = BoardManager.Instance.Pices[i, j];
                 if (c == null)
                     r[i, j] = true;
@@ -209,7 +212,6 @@ public  class Pawn : MonoBehaviour
                 }
             }
 
-
             //down right
             i = CurrentX;
             j = CurrentY;
@@ -217,9 +219,10 @@ public  class Pawn : MonoBehaviour
             {
                 i++;
                 j--;
-                if (i >= 8 && j < 0)
+                if (i > 7 || j < 0)
                     break;
 
+                //Debug.Log("Down Right-" + i + "" + j);
                 c = BoardManager.Instance.Pices[i, j];
                 if (c == null)
                     r[i, j] = true;
@@ -234,6 +237,205 @@ public  class Pawn : MonoBehaviour
         }
 
         return r;
+    }
+    Moves MoveTopLeft()
+    {
+        Pawn c;
+        Moves moves = new Moves();
+        int i, j;
+
+        //top left
+        i = CurrentX;
+        j = CurrentY;
+
+        i -= 1;
+        j += 1;
+        if (i < 0 || j > 7) return null;
+        else
+        {
+            c = BoardManager.Instance.Pices[i, j];
+            if (c == null)
+            {
+
+                moves.X = i;
+                moves.Y = j;
+                moves.Dir = "TL";
+                return moves;
+            }
+            else
+            {
+                if (IsWhite != c.IsWhite)
+                {
+                    moves.X = i;
+                    moves.Y = j;
+                    moves.Dir = "TL";
+                    return moves;
+                }
+                
+                
+             return null;   
+            }
+        }
+    }
+    Moves MoveTopRight()
+    {
+        Pawn c;
+        Moves moves = new Moves();
+        int i, j;
+
+        //top Right
+        i = CurrentX;
+        j = CurrentY;
+
+        i = i + 1;
+        j = j + 1;
+        if (i > 7 || j > 7) return null;
+        else
+        {
+            c = BoardManager.Instance.Pices[i, j];
+            if (c == null)
+            {
+
+                moves.X = i;
+                moves.Y = j;
+                moves.Dir = "TR";
+                return moves;
+            }
+            else
+            {
+                if (IsWhite != c.IsWhite)
+                {
+                    moves.X = i;
+                    moves.Y = j;
+                    moves.Dir = "TR";
+                    return moves;
+                }
+
+                else
+                {
+                    return null;
+                }
+                
+            }
+        }
+    }
+    Moves MoveDownRight()
+    {
+        Pawn c;
+        Moves moves = new Moves();
+        int i, j;
+
+        //Down Right
+        i = CurrentX;
+        j = CurrentY;
+
+        i += 1;
+        j -= 1;
+        if (i > 7 || j < 0) return null;
+        else
+        {
+            c = BoardManager.Instance.Pices[i, j];
+            if (c == null)
+            {
+
+                moves.X = i;
+                moves.Y = j;
+                moves.Dir = "DR";
+                return moves;
+            }
+            else
+            {
+                if (IsWhite != c.IsWhite)
+                {
+                    moves.X = i;
+                    moves.Y = j;
+                    moves.Dir = "DR";
+                    return moves;
+                }
+
+
+                return null;
+            }
+        }
+    }
+    Moves MoveDownLeft()
+    {
+        Pawn c;
+        Moves moves = new Moves();
+        int i, j;
+
+        //Down Left
+        i = CurrentX;
+        j = CurrentY;
+
+        i -= 1;
+        j -= 1;
+        if (i < 0 || j < 0) return null;
+        else
+        {
+            c = BoardManager.Instance.Pices[i, j];
+            if (c == null)
+            {
+
+                moves.X = i;
+                moves.Y = j;
+                moves.Dir = "DL";
+                return moves;
+            }
+            else
+            {
+                if (IsWhite != c.IsWhite)
+                {
+                    moves.X = i;
+                    moves.Y = j;
+                    moves.Dir = "DL";
+                    return moves;
+                }
+
+
+                return null;
+            }
+        }
+    }
+    public List<Moves> GetAllMoves()
+    {
+        List<Moves> moves = new List<Moves>();
+
+        if (!isKIng)
+        {
+            if (IsWhite)
+            {
+                Moves topLeft = MoveTopLeft();
+                Moves topRight = MoveTopRight();
+
+                if (topLeft != null) moves.Add(topLeft);
+                if (topRight != null) moves.Add(topRight);
+            }
+            else
+            {
+                Moves downRight = MoveDownRight();
+                Moves downLeft = MoveDownLeft();
+
+                if (downLeft != null) moves.Add(downLeft);
+                if (downRight != null) moves.Add(downRight);
+            }
+
+            return moves;
+        }
+        else
+        {
+            Moves topLeft = MoveTopLeft();
+            Moves topRight = MoveTopRight();
+            Moves downRight = MoveDownRight();
+            Moves downLeft = MoveDownLeft();
+
+            if (topLeft != null) moves.Add(topLeft);
+            if (topRight != null) moves.Add(topRight);
+            if (downLeft != null) moves.Add(downLeft);
+            if (downRight != null) moves.Add(downRight);
+
+            return moves;
+        }
     }
     public void PromotToKing()
     {
@@ -257,4 +459,14 @@ public  class Pawn : MonoBehaviour
      //       DoScaleUpDown();
       //  };
     }
+    public Vector2 GetCurrentPos()
+    {
+        Vector2 pos = new Vector2(CurrentX, CurrentY);
+        return pos;
+    }
+}
+public class Moves
+{
+    public int X, Y;
+    public string Dir;
 }

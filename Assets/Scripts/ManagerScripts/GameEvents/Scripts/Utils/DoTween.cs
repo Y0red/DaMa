@@ -38,7 +38,7 @@ public class DoTween : MonoBehaviour
 
     private void DoScaleUpDown()
     {
-        transform.DOShakeScale(time, .3f, 3, 90f).onComplete += delegate
+        transform.DOShakeScale(time, .2f, 2, 90f).onComplete += delegate
         {
             DoScaleUpDown();
         };
